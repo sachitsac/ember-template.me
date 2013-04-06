@@ -15,28 +15,29 @@ My Ember Template with Twitter Bootstrap
 </p>
 
 ## Installation instructions
-    Assuming nodejs is installed, run the following to setup the project
+
+Assuming nodejs is installed, run the following to setup the project
 
        <code>npm install grunt-cli</code>
 
-    To install grunt-cli globally, use <code>-g</code> flag. <br />
+To install grunt-cli globally, use <code>-g</code> flag. <br />
 
-        <code>npm install</code> <br />
+    <code>npm install</code> <br />
 
-    This will install dependencies listed in the package.json file. <br />
+This will install dependencies listed in the package.json file. <br />
 
 ## Running the project
 
-    If you installed grunt-cli globally:
+If you installed grunt-cli globally:
 
-        <code>grunt</code>
+    <code>grunt</code>
 
-    Otherwise, there's a shell script utility called grunt in the project folder. It can be used to run grunt <br />
+Otherwise, there's a shell script utility called grunt in the project folder. It can be used to run grunt <br />
 
-        <code>./grunt</code> <br />
+    <code>./grunt</code> <br />
 
 ## Usage
-    <ul>
-        <li>watch -- Start listening to changes and compile the project automatically</li>
-        <li>default -- run the default task</li>
-    </ul>
+    
+* `watch` Start listening to changes and compile the project automatically
+* `default` run the default task
+

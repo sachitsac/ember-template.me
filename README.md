@@ -12,7 +12,7 @@ My Ember Template with Twitter Bootstrap
 
 ## Installation instructions
 
-Assuming nodejs is installed, run the following to setup the project
+Assuming nodejs is installed, run the following to setup the project. Or check [Nodejs site](http://nodejs.org) for help.
 
     npm install grunt-cli
 

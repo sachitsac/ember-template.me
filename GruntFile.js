@@ -12,6 +12,14 @@ module.exports = function(grunt) {
             img: ['images']
         },
 
+        neuter: {
+            options: {
+                includeSourceURL: false
+            },
+            'dist/js/app.js': 'js/app/app.js',
+            'dist/js/libs.js': 'js/app/libs.js'
+        },
+
         concat: {
             css: {
                 src: ['<%= files.css %>'],
@@ -74,10 +82,23 @@ module.exports = function(grunt) {
             }
         },
 
+        ember_templates: {
+            options: {
+                templateName: function(sourceFile) {
+                    return sourceFile.replace(/js\/app\/templates\//, '');
+                }
+            },
+            'dist/js/templates/templates.js': ["js/app/templates/**/*.hbs"]
+        },
+
         watch: {
             application_code: {
                 files: ['GruntFile.js', 'js/app/**/*.js', 'less/*.less'],
-                tasks: ['default']
+                tasks: ['ember_templates', 'jshint', 'neuter', 'less']
+            },
+            handlebars_templates: {
+                files: ['js/app/templates/**/*.hbs'],
+                tasks: ['ember_templates', 'neuter']
             }
         }
     });
@@ -87,28 +108,26 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-csslint');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-neuter');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-livereload');
+    grunt.loadNpmTasks('grunt-ember-templates');
 
+    //grunt.loadNpmTasks('grunt-contrib-uglify');    
+    //grunt.loadNpmTasks('grunt-contrib-csslint');
+    //grunt.loadNpmTasks('grunt-contrib-cssmin');
     // Investigate handlebar precompilation process
     //grunt.loadNpmTasks('grunt-contrib-handlebars');
 
     // Compile less files
 
-    grunt.registerTask(
-        'default', [
-        // Javascript lint
+    grunt.registerTask('default', []);
+
+    grunt.registerTask('build', [
+        'ember_templates',
         'jshint',
-        // Compile less files
+        'neuter',
         'less'
-        //'concat:js',
-        //'concat:jslibs',
-        //'uglify',
-        //'concat:jsmin',
-        //'concat:cssmin'
     ]);
 
 };

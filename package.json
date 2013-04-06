@@ -14,7 +14,9 @@
     "grunt-smushit": "~0.4.0",
     "grunt-contrib-livereload": "~0.1.2",
     "grunt-ember-handlebars": "~0.4.0",
-    "grunt-cli": "~0.1.7"
+    "grunt-cli": "~0.1.7",
+    "grunt-neuter": "~0.4.0",
+    "grunt-ember-templates": "~0.4.4"
   },
   "author": "Sachit Malhotra"
 }

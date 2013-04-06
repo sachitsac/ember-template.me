@@ -19,6 +19,7 @@
         "undef": true,
         "unused": false,
         "Ember": true,
-        "App": true
+        "App": true,
+        "require": true
     }
 }

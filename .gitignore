@@ -1,3 +1,4 @@
 .DS*
 ._*
 *.bak
+node_modules
